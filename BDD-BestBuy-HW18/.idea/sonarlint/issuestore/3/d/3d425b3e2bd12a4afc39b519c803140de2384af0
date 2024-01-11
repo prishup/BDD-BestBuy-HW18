@@ -1,0 +1,8 @@
+
+j
+java:S2095&"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(‰ˆµ½8Â™ÀÎÎ1
+»
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÍöÔóùÿÿÿÿ8Å™ÀÎÎ1
+y
+java:S3077"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(æ£¡‚üÿÿÿÿ8È™ÀÎÎ1
+G	java:S106,"+Replace this use of System.out by a logger.(€ÒÅ¡8æ™ÀÎÎ1
