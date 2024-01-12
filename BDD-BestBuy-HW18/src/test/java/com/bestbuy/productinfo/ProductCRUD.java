@@ -1,5 +1,6 @@
 package com.bestbuy.productinfo;
 
+import com.bestbuy.constants.EndPoints;
 import com.bestbuy.model.ProductPojo;
 import com.bestbuy.testbase.TestBaseBestBuyApi;
 import com.bestbuy.utils.TestUtils;
@@ -7,6 +8,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -54,6 +57,35 @@ public class ProductCRUD extends TestBaseBestBuyApi {
                 .post()
        .then().log().all().statusCode(201);
 
-
     }
-}
+    @Title("Update the user and verify the updated information")
+    @Test
+    public void test004() {
+        name = name + "updated";
+        ProductPojo productPojo = new ProductPojo();
+        productPojo.setName(name);
+
+        SerenityRest.given().log().all()
+                .contentType(ContentType.JSON)
+                .pathParam("id",ID )
+                .body(productPojo)
+                .when()
+                .patch(EndPoints.UPDATE_PRODUCT_BY_ID)
+                .then().log().all().statusCode(200);}
+
+    @Title("Delete the product and verify if the student is deleted")
+    @Test
+    public void test005() {
+        SerenityRest.given()
+                .pathParam("id", ID)
+                .when()
+                .delete(EndPoints.DELETE_PRODUCT_BY_ID)
+                .then()
+                .statusCode(200);
+        given().log().all()
+                .pathParam("id",ID)
+                .when()
+                .get(EndPoints.DELETE_PRODUCT_BY_ID)
+                .then().log().all();
+
+}}

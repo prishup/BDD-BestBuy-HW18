@@ -1,6 +1,5 @@
 Feature: Testing crud on bestbuy product
-
-
+  @POSITIVE
   Scenario Outline: Product CRUD Operation
     Given Best buy application is running
     When I create a new product by providing the information name "<name>" type "<type>" price "<price>" shipping "<shipping>" upc "<upc>" description "<description>" manufacturer "<manufacturer>" model "<model>" url "<url>" image "<image>"
